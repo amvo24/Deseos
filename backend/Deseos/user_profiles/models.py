@@ -9,7 +9,7 @@ def user_profile_pic_path(instance, filename):
 class User_Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     dob = models.DateField(null=True, blank=True, default=date.today)
-    profile_pic = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
+    profile_pic = models.ImageField(upload_to=user_profile_pic_path, blank=True, null=True)
     street_address = models.CharField(max_length=255, blank=True, null=True)
     city = models.CharField(max_length=100, blank=True, null=True)
     state = models.CharField(max_length=50, blank=True, null=True)
@@ -17,4 +17,4 @@ class User_Profile(models.Model):
 
 
     def __str__(self):
-        return self.user.username
+        return f"{self.user.username}'s Profile"
