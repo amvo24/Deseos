@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'user_profiles',
     'followers',
     'gifts',
+    'rest_framework', 
 
 ]
 
